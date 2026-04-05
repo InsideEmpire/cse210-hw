@@ -1,3 +1,5 @@
+using System;
+
 class Game
 {
     private Map _map;
@@ -45,15 +47,33 @@ class Game
             default:
                 break;
         }
+
+        if (_map.IsKey(_player.GetX(), _player.GetY()))
+        {
+            _map.SetFloorTile(_player.GetX(), _player.GetY());
+            _player.SetHasKey(true);
+            _player.AddScore(10);
+        } 
+        else if (_map.IsDoor(_player.GetX(), _player.GetY()) && _player.GetHasKey())
+        {
+            _map.GenerateMap();
+            _player.SetHasKey(false);
+            _player.SetX(1);
+            _player.SetY(1);
+            _player.AddScore(50);
+        }
     }
 
     public void Run()
     {
+        Console.Clear();
         _map.DrawMap(_player.GetX(), _player.GetY());
         do
         {
             Move();
             _map.DrawMap(_player.GetX(), _player.GetY());
+            Console.SetCursorPosition(0, 11);
+            Console.WriteLine($"Key: {_player.GetHasKey()} | Score: {_player.GetScore()}");
         } while (true);
     }
 }

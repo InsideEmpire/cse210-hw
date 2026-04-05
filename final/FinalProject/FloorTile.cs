@@ -1,7 +1,7 @@
 class FloorTile : Tile
 {
-    override public char GetSymbol()
+    override public string GetSymbol()
     {
-        return '.';
+        return " ";
     }
 }

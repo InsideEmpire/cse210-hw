@@ -1,7 +1,7 @@
 class KeyTile : Tile
 {
-    public override char GetSymbol()
+    public override string GetSymbol()
     {
-        return '@';
+        return "K";
     }
 }

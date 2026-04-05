@@ -1,7 +1,7 @@
 class DoorTile : Tile
 {
-    public override char GetSymbol()
+    public override string GetSymbol()
     {
-        return 'D';
+        return "D";
     }
 }

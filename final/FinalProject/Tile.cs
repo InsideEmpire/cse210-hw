@@ -1,5 +1,5 @@
 abstract class Tile
 {
-    abstract public char GetSymbol();
+    abstract public string GetSymbol();
 
 }   
